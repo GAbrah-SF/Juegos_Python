@@ -1,22 +1,21 @@
 from datetime import datetime
 
 
-def current_date_format(date):
-    dias = ("Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo")
-    meses = ("Enero", "Febrero", "Marzo", "Abri", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
+def formato_fecha(date):
+    dias = ("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
+    meses = ("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
 
-    nom_dia = dias[date.isoweekday() - 1]
+    nom_dias = dias[date.isoweekday() - 1]
     dia = date.day
     mes = meses[date.month - 1]
     year = date.year
-    mensaje = "{}, {} de {} de {}".format(nom_dia, dia, mes, year)
 
-    return mensaje
+    return f"{nom_dias}, {dia} de {mes} de {year}"
 
 
-now = datetime.now()
-fecha = current_date_format(now)
+hoy = datetime.now()
+fecha = formato_fecha(hoy)
 
 
 if __name__ == '__main__':
-    print(f"\n{fecha}")
+    print(f"\nHoy es: {fecha}")
